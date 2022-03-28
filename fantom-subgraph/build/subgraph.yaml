@@ -1,0 +1,140 @@
+specVersion: 0.0.3
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: LuxorStakingV1
+    network: fantom
+    source:
+      address: "0xf3F0BCFd430085e198466cdCA4Db8C2Af47f0802"
+      abi: LuxorStaking
+      startBlock: 23823629
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - LuxorStaking
+      abis:
+        - name: LuxorStaking
+          file: LuxorStakingV1/abis/LuxorStaking.json
+        - name: StakingHelper
+          file: LuxorStakingV1/abis/StakingHelper.json
+        - name: LumensERC20
+          file: LuxorStakingV1/abis/LumensERC20.json
+        - name: LuxorERC20
+          file: LuxorStakingV1/abis/LuxorERC20.json
+        - name: UniswapV2Pair
+          file: LuxorStakingV1/abis/UniswapV2Pair.json
+        - name: ERC20
+          file: LuxorStakingV1/abis/ERC20.json
+        - name: CirculatingSupply
+          file: LuxorStakingV1/abis/CirculatingSupply.json
+      callHandlers:
+        - function: stake(uint256,address)
+          handler: handleStake
+        - function: unstake(uint256,bool)
+          handler: handleUnstake
+      file: LuxorStakingV1/LuxorStakingV1.wasm
+  - kind: ethereum/contract
+    name: LuxorStakingV2
+    network: fantom
+    source:
+      address: "0xf3F0BCFd430085e198466cdCA4Db8C2Af47f0802"
+      abi: LuxorStaking
+      startBlock: 23779404
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - LuxorStaking
+      abis:
+        - name: LuxorStaking
+          file: LuxorStakingV2/abis/LuxorStaking.json
+        - name: StakingHelper
+          file: LuxorStakingV2/abis/StakingHelper.json
+        - name: LumensERC20
+          file: LuxorStakingV2/abis/LumensERC20.json
+        - name: LuxorERC20
+          file: LuxorStakingV2/abis/LuxorERC20.json
+        - name: UniswapV2Pair
+          file: LuxorStakingV2/abis/UniswapV2Pair.json
+        - name: ERC20
+          file: LuxorStakingV2/abis/ERC20.json
+        - name: CirculatingSupply
+          file: LuxorStakingV2/abis/CirculatingSupply.json
+      callHandlers:
+        - function: stake(uint256,address)
+          handler: handleStake
+        - function: unstake(uint256,bool)
+          handler: handleUnstake
+      file: LuxorStakingV1/LuxorStakingV1.wasm
+  - kind: ethereum/contract
+    name: LumensERC20V1
+    network: fantom
+    source:
+      address: "0x6671e20b83ba463f270c8c75dae57e3cc246cb2b"
+      abi: LumensERC20
+      startBlock: 23823629
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - LumensERC20
+      abis:
+        - name: LumensERC20
+          file: LumensERC20V1/abis/LumensERC20.json
+        - name: LuxorERC20
+          file: LumensERC20V1/abis/LuxorERC20.json
+        - name: UniswapV2Pair
+          file: LumensERC20V1/abis/UniswapV2Pair.json
+      callHandlers:
+        - function: rebase(uint256,uint256)
+          handler: rebaseFunction
+      file: LumensERC20V1/LumensERC20V1.wasm
+  - kind: ethereum/contract
+    name: LumensERC20V2
+    network: fantom
+    source:
+      address: "0x6671E20b83Ba463F270c8c75dAe57e3Cc246cB2b"
+      abi: LumensERC20
+      startBlock: 23779404
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - LumensERC20
+      abis:
+        - name: LumensERC20
+          file: LumensERC20V2/abis/LumensERC20.json
+        - name: LuxorERC20
+          file: LumensERC20V2/abis/LuxorERC20.json
+        - name: UniswapV2Pair
+          file: LumensERC20V2/abis/UniswapV2Pair.json
+      callHandlers:
+        - function: rebase(uint256,uint256)
+          handler: rebaseFunction
+      file: LumensERC20V2/LumensERC20V2.wasm
+  - kind: ethereum/contract
+    name: Sor
+    network: fantom
+    source:
+      address: "0xEFFd4874AcA3Acd19a24dF3281b5cdAdD823801A"
+      abi: Sor
+      startBlock: 28730052
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Sor
+      abis:
+        - name: Sor
+          file: Sor/abis/Sor.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: Sor/Sor.wasm

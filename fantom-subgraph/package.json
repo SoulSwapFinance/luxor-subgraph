@@ -1,0 +1,16 @@
+{
+  "name": "initiallux",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen ",
+    "build": "graph build ",
+    "deploy": "npm run codegen && npm run build && graph deploy  --node https://api.thegraph.com/deploy/ soulswapfinance/luxor-money",
+    "create-local": "graph create --node http://localhost:8020/ soulswapfinance/luxor-money",
+    "remove-local": "graph remove --node http://localhost:8020/ soulswapfinance-lux/luxor-money",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 soulswapfinance-lux/luxor-money"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.23.2",
+    "@graphprotocol/graph-ts": "0.23.1"
+  }
+}

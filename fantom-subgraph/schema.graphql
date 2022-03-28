@@ -1,0 +1,60 @@
+type Sor @entity {
+  id: ID!
+  timestamp: BigInt!
+  sorTVL: BigDecimal!
+  apy: BigDecimal!
+  supply: BigDecimal!
+}
+
+type Rebase @entity {
+  id: ID!
+  transaction: String!
+  amount: BigDecimal!
+  stakedLux: BigDecimal!
+  percentage: BigDecimal!
+  contract: String!
+  timestamp: BigInt!
+  value: BigDecimal!
+}
+
+type ProtocolMetric @entity {
+  id: ID!
+  timestamp: BigInt!
+  luxCirculatingSupply: BigDecimal!
+  lumCirculatingSupply: BigDecimal!
+  totalSupply: BigDecimal!
+  luxPrice: BigDecimal!
+  marketCap: BigDecimal!
+  totalValueLocked: BigDecimal!
+  treasuryRiskFreeValue: BigDecimal!
+  treasuryMarketValue: BigDecimal!
+  treasuryInvestments: BigDecimal!
+
+  nextEpochRebase: BigDecimal!
+  nextDistributedLux: BigDecimal!
+
+  treasuryDaiRiskFreeValue: BigDecimal!
+
+  treasuryWFTMRiskFreeValue: BigDecimal!
+  treasuryWFTMTokenAmount: BigDecimal!
+  treasuryWFTMMarketValue: BigDecimal!
+
+  treasuryWLUMRiskFreeValue: BigDecimal!
+
+  treasuryDaiMarketValue: BigDecimal!
+  treasuryDaiTokenAmount: BigDecimal!
+  treasuryDaiLPMarketValue: BigDecimal!
+
+  treasuryWLUMMarketValue: BigDecimal!
+
+  currentAPY: BigDecimal!
+  runwayCurrent: BigDecimal
+  treasuryLuxDaiPOL: BigDecimal!
+  luxDaiTokenAmount: BigDecimal!
+}
+
+type LastBlock @entity {
+  id: ID!
+  number: BigInt!
+  timestamp: BigInt!
+}
